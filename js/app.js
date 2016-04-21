@@ -21,4 +21,23 @@ angular.module('starter', ['ionic'])
       StatusBar.styleDefault();
     }
   });
-})
+});
+
+/**
+ * Enable our Service Worker for Progressive Web App support on Android (and other non-iOS mobile browsers).
+ * This makes it possible to host your Ionic app as a mobile web app with offline,
+ * push notification, and caching support.
+ *
+ * Safe to remove if only using Ionic for a native Cordova app.
+ *
+ * Note: Service Workers require HTTPS when hosted.
+ */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+    // Registration was successful
+    console.log('ServiceWorker registration successful with scope: ',    registration.scope);
+  }).catch(function(err) {
+    // registration failed :(
+    console.log('ServiceWorker registration failed: ', err);
+  });
+}
